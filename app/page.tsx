@@ -42,6 +42,96 @@ export default function Home() {
           </Card>
           <p className="text-center mt-2">Airpods Pro 2</p>
         </div>
+
+        <div>
+          <Card>
+            <CardContent className="flex flex-col items-center mt-7">
+              <Image
+                className="rounded-lg"
+                src={"/images/tissot-prx.png"}
+                alt="Next.js Logo"
+                width={120}
+                height={120}
+              />
+            </CardContent>
+          </Card>
+          <p className="text-center mt-2">Tissot PRX Powermatic 80</p>
+        </div>
+
+        <div>
+          <Card>
+            <CardContent className="flex flex-col items-center mt-7">
+              <Image
+                className="rounded-lg"
+                src={"/images/iphone15-pro.png"}
+                alt="Next.js Logo"
+                width={200}
+                height={200}
+              />
+            </CardContent>
+          </Card>
+          <p className="text-center mt-2">Iphone 15 Pro</p>
+        </div>
+
+        <div>
+          <Card>
+            <CardContent className="flex flex-col items-center mt-12">
+              <Image
+                className="rounded-lg"
+                src={"/images/santal-33.png"}
+                alt="Next.js Logo"
+                width={110}
+                height={110}
+              />
+            </CardContent>
+          </Card>
+          <p className="text-center mt-2">Santal 33</p>
+        </div>
+
+        <div>
+          <Card>
+            <CardContent className="flex flex-col items-center mt-5">
+              <Image
+                className="rounded-lg"
+                src={"/images/uniqlo-tee.png"}
+                alt="Next.js Logo"
+                width={200}
+                height={200}
+              />
+            </CardContent>
+          </Card>
+          <p className="text-center mt-2">Uniqlo U Airism T-Shirt</p>
+        </div>
+
+        <div>
+          <Card>
+            <CardContent className="flex flex-col items-center mt-4">
+              <Image
+                className="rounded-lg"
+                src={"/images/virgil-abloh.png"}
+                alt="Next.js Logo"
+                width={230}
+                height={230}
+              />
+            </CardContent>
+          </Card>
+          <p className="text-center mt-2">Virgil Abloh - Figures Of Speech</p>
+        </div>
+
+        <div>
+          <Card>
+            <CardContent className="flex flex-col items-center mt-20">
+              <Image
+                className="rounded-lg"
+                src={"/images/lego-porsche.png"}
+                alt="Next.js Logo"
+                width={230}
+                height={230}
+              />
+            </CardContent>
+          </Card>
+          <p className="text-center mt-2">Lego Porsche 911</p>
+        </div>
       </div>
     </div>
   );

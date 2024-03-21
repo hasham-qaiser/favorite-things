@@ -1,26 +1,34 @@
 import { Card, CardContent } from "@/components/ui/card";
 
+import { client, urlFor } from "./lib/sanity";
+import { itemCard } from "./lib/interface";
 import Image from "next/image";
 
-export default function Home() {
+export const revalidate = 30; // revalidate at most every 30 seconds
+
+async function getData() {
+  const query = `*[_type == 'item'] | order(_createdAt desc)`;
+
+  const data = await client.fetch(query);
+
+  return data;
+}
+
+export default async function Home() {
+  const data: itemCard[] = await getData();
   return (
-    <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-4 gap-8">
-        <div>
-          <Card>
-            <CardContent className="flex flex-col items-center justify-between">
-              <Image
-                className="rounded-lg mt-4"
-                src={"/images/macbook-pro.png"}
-                alt="Next.js Logo"
-                width={300}
-                height={300}
-              />
-            </CardContent>
-          </Card>
-          <p className="text-center mt-2">Macbook Pro</p>
-        </div>
-      </div>
+    <div className="grid grid-cols-4 gap-8 max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      {data.map((post, idx) => (
+        <Card key={idx} className="flex justify-center items-center">
+          <Image
+            src={urlFor(post.itemImage).url()}
+            alt="item image"
+            width={400}
+            height={400}
+            className="object-contain w-full h-full"
+          />
+        </Card>
+      ))}
     </div>
   );
 }

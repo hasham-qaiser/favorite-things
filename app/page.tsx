@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { client, urlFor } from "./lib/sanity";
 import { itemCard } from "./lib/interface";
@@ -17,9 +17,9 @@ async function getData() {
 export default async function Home() {
   const data: itemCard[] = await getData();
   return (
-    <div className="grid grid-cols-4 gap-8 max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-4 gap-20 max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       {data.map((post, idx) => (
-        <Card key={idx} className="flex justify-center items-center">
+        <Card key={idx}>
           <Image
             src={urlFor(post.itemImage).url()}
             alt="item image"
@@ -27,6 +27,9 @@ export default async function Home() {
             height={400}
             className="object-contain w-full h-full"
           />
+          <div className="justify-center flex mt-3">
+            <CardTitle>{post.title}</CardTitle>
+          </div>
         </Card>
       ))}
     </div>

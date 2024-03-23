@@ -2,6 +2,7 @@ export interface itemCard {
   title: string;
   smallDescription: string;
   currentSlug: string;
+  timestamp: string;
   content: {
     _type: string;
     children: {

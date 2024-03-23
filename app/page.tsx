@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { client, urlFor } from "./lib/sanity";
 import { itemCard } from "./lib/interface";
 import Image from "next/image";
+import { format } from "date-fns";
 
 import {
   HoverCardTrigger,
@@ -30,6 +31,7 @@ export default async function Home() {
             <HoverCardTrigger className="hover:cursor-pointer">
               <HoverCardContent className="w-50 text-center">
                 {post.smallDescription}
+                <div>Purchased: {post.timestamp}</div>
               </HoverCardContent>
               <Image
                 src={urlFor(post.itemImage).url()}

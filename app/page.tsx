@@ -4,6 +4,12 @@ import { client, urlFor } from "./lib/sanity";
 import { itemCard } from "./lib/interface";
 import Image from "next/image";
 
+import {
+  HoverCardTrigger,
+  HoverCard,
+  HoverCardContent,
+} from "@/components/ui/hover-card";
+
 export const revalidate = 30; // revalidate at most every 30 seconds
 
 async function getData() {
@@ -20,13 +26,20 @@ export default async function Home() {
     <div className="grid grid-cols-4 gap-20 max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       {data.map((post, idx) => (
         <Card key={idx}>
-          <Image
-            src={urlFor(post.itemImage).url()}
-            alt="item image"
-            width={400}
-            height={400}
-            className="object-contain w-full h-full"
-          />
+          <HoverCard>
+            <HoverCardTrigger className="hover:cursor-pointer">
+              <HoverCardContent className="w-50 text-center">
+                {post.smallDescription}
+              </HoverCardContent>
+              <Image
+                src={urlFor(post.itemImage).url()}
+                alt="item image"
+                width={400}
+                height={400}
+                className="object-contain w-full h-full"
+              />
+            </HoverCardTrigger>
+          </HoverCard>
           <div className="justify-center flex mt-3">
             <CardTitle>{post.title}</CardTitle>
           </div>

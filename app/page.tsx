@@ -29,7 +29,7 @@ export default async function Home() {
         <Card key={idx}>
           <HoverCard>
             <HoverCardTrigger className="hover:cursor-pointer">
-              <HoverCardContent className="w-50 text-center">
+              <HoverCardContent className="w-50 text-left text-gray-600">
                 {post.smallDescription}
                 <div>Purchased: {post.timestamp}</div>
               </HoverCardContent>
@@ -38,11 +38,11 @@ export default async function Home() {
                 alt="item image"
                 width={400}
                 height={400}
-                className="object-contain w-full h-full"
+                className="object-contain w-full h-full hover:scale-105 duration-300 ease-in-out"
               />
             </HoverCardTrigger>
           </HoverCard>
-          <div className="justify-center flex mt-3">
+          <div className="text-left flex mt-3">
             <CardTitle>{post.title}</CardTitle>
           </div>
         </Card>

@@ -29,7 +29,7 @@ export default async function Home() {
         <Card key={idx}>
           <HoverCard>
             <HoverCardTrigger className="hover:cursor-pointer">
-              <HoverCardContent className="w-50 text-left text-gray-600">
+              <HoverCardContent className="w-50 text-left">
                 {post.smallDescription}
                 <div>Purchased: {post.timestamp}</div>
               </HoverCardContent>

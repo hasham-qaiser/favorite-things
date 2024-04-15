@@ -14,7 +14,8 @@ import {
 export const revalidate = 30; // revalidate at most every 30 seconds
 
 async function getData() {
-  const query = `*[_type == 'item'] | order(_createdAt desc)`;
+  const query = `*[_type == 'item'] | order(timestamp desc)
+  `;
 
   const data = await client.fetch(query);
 

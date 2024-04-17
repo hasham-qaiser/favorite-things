@@ -25,7 +25,7 @@ async function getData() {
 export default async function Home() {
   const data: itemCard[] = await getData();
   return (
-    <div className="grid grid-cols-4 gap-20 max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20 max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 container">
       {data.map((post, idx) => (
         <Card key={idx}>
           <HoverCard>
@@ -40,7 +40,7 @@ export default async function Home() {
                 alt="item image"
                 width={400}
                 height={400}
-                className="object-contain w-full h-full hover:scale-105 duration-300 ease-in-out"
+                className="object-contain w-full h-full hover:scale-105 duration-300 ease-in-out container"
               />
             </HoverCardTrigger>
           </HoverCard>

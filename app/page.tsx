@@ -1,4 +1,11 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 import { client, urlFor } from "./lib/sanity";
 import { itemCard } from "./lib/interface";
@@ -28,23 +35,14 @@ export default async function Home() {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-20 max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 container">
       {data.map((post, idx) => (
         <Card key={idx}>
-          <HoverCard>
-            <HoverCardTrigger className="hover:cursor-pointer">
-              <HoverCardContent className="w-50 text-center">
-                {post.title}
-                {post.smallDescription}
-                <div>Purchased: {post.timestamp}</div>
-              </HoverCardContent>
-              <Image
-                src={urlFor(post.itemImage).url()}
-                alt="item image"
-                width={400}
-                height={400}
-                className="object-contain w-full h-full hover:scale-105 duration-300 ease-in-out container"
-              />
-            </HoverCardTrigger>
-          </HoverCard>
-          <div className="text-left flex mt-3"></div>
+          <Image
+            src={urlFor(post.itemImage).url()}
+            alt="item image"
+            width={400}
+            height={400}
+            className="object-contain w-full h-full hover:scale-105 duration-300 ease-in-out container"
+          />
+          <CardDescription>{post.title}</CardDescription>
         </Card>
       ))}
     </div>
